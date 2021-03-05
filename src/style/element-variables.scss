@@ -6,3 +6,27 @@ $--font-path: '~element-ui/lib/theme-chalk/fonts';
 .el-scrollbar__wrap{
     overflow-x: hidden;
 }
+
+/*menu*/
+.el-menu{
+    background:#fafafa;
+    border:none;
+
+    .el-menu-item,.el-submenu__title{
+        color:#37414b;
+    }
+
+    .el-menu-item.is-active{
+        color:#e7f4ff !important;
+        background-color:#5482ee !important;
+    }
+
+    .el-menu-item:hover,.el-submenu__title:hover,.el-menu-item:focus,.el-submenu__title:focus{
+        background-color:#e1e1e1;
+        color:#37414b;
+    }
+
+    .el-submenu__title:hover>.icon,.el-menu-item:hover>.icon{
+        transform: scale(1.2);
+    }
+}

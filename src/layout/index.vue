@@ -39,13 +39,20 @@
         .el-container {
             width: 100%;
             height: 100%;
-            .el-header{
-                background:#fff;
-                -webkit-box-shadow:0 10px 10px -10px #ccc;
-                box-shadow: 0 10px 10px -10px #ccc;
+
+            .el-container {
+                padding-left: 200px;
+
+                .el-header {
+                    background: #fff;
+                    -webkit-box-shadow: 0 10px 10px -10px #ccc;
+                    box-shadow: 0 10px 10px -10px #ccc;
+                }
             }
 
             .el-aside {
+                position: fixed;
+                height: 100%;
                 background-color: #fafafa;
                 -webkit-box-shadow: 10px 0 10px -10px #c7c7c7;
                 box-shadow: 10px 0 10px -10px #c7c7c7;
