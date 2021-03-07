@@ -1,9 +1,7 @@
-import { isCollapse } from "./getters"
-
 export default {
     setIsCollapse({
         commit
-    }, token) {
+    }, isCollapse) {
         commit('setIsCollapse', isCollapse)
     }
 }

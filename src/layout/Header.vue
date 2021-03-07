@@ -16,11 +16,14 @@
         computed:{
             ...mapGetters('setting',['isCollapse'])
         },
+        mounted(){
+            console.log(this.isCollapse);
+        },
         methods:{
             ...mapActions('setting',['setIsCollapse']),
-            setFold:()=>{
-                let isCollapse = !this.isCollapse;
-                this.setFold(isCollapse);
+            setFold(){
+                let isCollapse = !JSON.parse(JSON.stringify(this.isCollapse));
+                this.setIsCollapse(isCollapse);
             }
         }
     }

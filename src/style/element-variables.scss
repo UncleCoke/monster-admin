@@ -3,30 +3,50 @@ $--font-path: '~element-ui/lib/theme-chalk/fonts';
 @import "~element-ui/packages/theme-chalk/src/index";
 
 /*scrollbar*/
-.el-scrollbar__wrap{
+.el-scrollbar__wrap {
     overflow-x: hidden;
 }
 
 /*menu*/
-.el-menu{
-    background:#fafafa;
-    border:none;
+.el-menu {
+    background: #fafafa;
+    border: none;
+    transition: all 0.3s ease-in-out 0s;
 
-    .el-menu-item,.el-submenu__title{
-        color:#37414b;
+    .el-menu-item,
+    .el-submenu__title {
+        color: #37414b;
     }
 
-    .el-menu-item.is-active{
-        color:#e7f4ff !important;
-        background-color:#5482ee !important;
+    .el-menu-item.is-active {
+        color: #e7f4ff !important;
+        background-color: #5482ee !important;
     }
 
-    .el-menu-item:hover,.el-submenu__title:hover,.el-menu-item:focus,.el-submenu__title:focus{
-        background-color:#e1e1e1;
-        color:#37414b;
+    .el-menu-item:hover,
+    .el-submenu__title:hover,
+    .el-menu-item:focus,
+    .el-submenu__title:focus {
+        background-color: #e1e1e1;
     }
 
-    .el-submenu__title:hover>.icon,.el-menu-item:hover>.icon{
-        transform: scale(1.2);
+    .el-submenu__title:hover>.icon,
+    .el-menu-item:hover>.icon {
+        transform: scale(1.3);
     }
+}
+
+.el-menu--collapse {
+    .el-submenu.is-active>.el-submenu__title {
+        color: #e7f4ff !important;
+        background-color: #5482ee !important;
+        .icon{
+            color: #e7f4ff !important;
+        }
+    }
+    .el-submenu__title:hover,.el-menu-item:hover{
+        .icon{
+            transform: scale(1.3);
+        }
+    } 
 }
