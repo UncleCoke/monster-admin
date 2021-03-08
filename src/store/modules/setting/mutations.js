@@ -1,5 +1,5 @@
 export default {
-    setIsCollapse(state, isCollapse) {
+    setIsCollapse: (state, isCollapse) => {
         state.isCollapse = isCollapse
     }
 }

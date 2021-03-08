@@ -1,3 +1,5 @@
-export const isCollapse = (state) => {
-    return state.isCollapse
+export default {
+    isCollapse: (state) => {
+        return state.isCollapse
+    }
 }

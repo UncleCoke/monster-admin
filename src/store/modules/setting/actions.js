@@ -1,7 +1,7 @@
 export default {
-    setIsCollapse({
+    setIsCollapse: ({
         commit
-    }, isCollapse) {
+    }, isCollapse) => {
         commit('setIsCollapse', isCollapse)
     }
 }

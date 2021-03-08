@@ -39,6 +39,8 @@ export default {
 .layout {
   width: 100%;
   height: 100%;
+  background:#f0f2f5;
+  color:#333;
 
   .el-container {
     width: 100%;
@@ -49,7 +51,7 @@ export default {
 
       .el-header {
         background: #fff;
-        box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.08);
+        border-bottom:1px solid #e8eaec;
       }
     }
 
