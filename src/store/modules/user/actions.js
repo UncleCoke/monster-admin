@@ -4,14 +4,9 @@ export default {
     }, token) => {
         commit('setToken', token)
     },
-    setUserName: ({
+    setUser: ({
         commit
-    }, userName) => {
-        commit('setUserName', userName)
-    },
-    setAvatarUrl: ({
-        commit
-    }, avatarUrl) => {
-        commit('setAvatarUrl', avatarUrl)
+    }, user) => {
+        commit('setUser', user)
     }
 }

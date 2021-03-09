@@ -1,6 +1,6 @@
 <template>
   <div class="nav">
-    <el-menu :collapse="isCollapse" :collapse-transition="false" :router="true">
+    <el-menu :collapse="isCollapse" :collapse-transition="false" :router="true" :default-active="activeMenu">
       <template v-for="menu in menus">
         <el-menu-item :index="menu.index" v-if="!menu.subs" :key="menu.index">
           <i :class="[menu.icon, 'icon']"></i>
@@ -28,7 +28,7 @@
     data() {
       return {
         menus: [{
-            index: "/table",
+            index: "/table/index",
             name: "表格",
             icon: "el-icon-watermelon"
           },
@@ -47,7 +47,7 @@
             ],
           },
           {
-            index: "/card",
+            index: "/card/index",
             name: "卡片",
             icon: "el-icon-apple"
           },
@@ -56,6 +56,13 @@
     },
     computed: {
       ...mapGetters("setting", ["isCollapse"]),
+      activeMenu() {
+        const route = this.$route
+        const {
+          path
+        } = route
+        return path
+      },
     },
   };
 </script>

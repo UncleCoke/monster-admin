@@ -1,25 +1,66 @@
 import Vue from 'vue'
 import VueRouter from 'vue-router'
+import store from './../store'
 
 Vue.use(VueRouter)
 
-const routes = [{
-  path: '/table',
-  component: () => import('@/views/table/index.vue')
-}, {
-  path: '/form',
-  component: () => import('@/views/form/index.vue'),
-  children: [{
-    path: 'default',
-    component: () => import('@/views/form/Default.vue')
-  }, {
-    path: 'step',
-    component: () => import('@/views/form/Step.vue')
-  }]
-}, {
-  path: '/card',
-  component: () => import('@/views/card/index.vue')
-}]
+const routes = [
+  {
+    path:'/login',
+    component: () => import('@/views/login')
+  },
+  {
+    path:'/',
+    component: () => import('@/layout'),
+    meta:{
+      requireAuth:true
+    }
+  },
+  {
+    path:'/table',
+    component:() => import('@/layout'),
+    redirect: '/table/index',
+    meta:{
+      requireAuth:true
+    },
+    children:[
+      {
+        path:'index',
+        component: () => import('@/views/table/index.vue')
+      }
+    ]
+  },
+  {
+    path:'/form',
+    component:() => import('@/layout'),
+    meta:{
+      requireAuth:true
+    },
+    children:[
+      {
+        path: 'default',
+        component: () => import('@/views/form/default.vue')
+      }, {
+        path: 'step',
+        component: () => import('@/views/form/step.vue')
+      }
+    ]
+  },
+  {
+    path:'/card',
+    component:() => import('@/layout'),
+    redirect: '/card/index',
+    meta:{
+      requireAuth:true
+    },
+    children:[
+      {
+        path:'index',
+        component: () => import('@/views/card/index.vue')
+      }
+    ]
+  }
+]
 
 const router = new VueRouter({
   mode: 'history',
@@ -27,6 +68,32 @@ const router = new VueRouter({
   routes
 })
 
+
+if (window.sessionStorage.getItem('token')) {
+  store.commit('user/setToken', window.sessionStorage.getItem('token'))
+}
+if (window.sessionStorage.getItem('user')) {
+  store.commit('user/setUser', window.sessionStorage.getItem('user'))
+}
+
+router.beforeEach((to, from, next) => {
+  if (to.path === '/login') {
+    window.sessionStorage.clear();
+    store.commit('user/setToken', '');
+    store.commit('user/setUser', {});
+  }
+  if (to.matched.some(r => r.meta.requireAuth)) {
+    if (store.state.user.token) {
+      next();
+    } else {
+      next({
+        path: '/login',
+      })
+    }
+  } else {
+    next();
+  }
+});
 
 
 export default router
