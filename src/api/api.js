@@ -1,9 +1,18 @@
 import {request} from './axios.js'
 
-export const getClassList = (data) => {
+export const login = (data) => {
     return request({
-        url: '/class/list',
+        url: '/login',
+        method: 'post',
+        data
+    })
+}
+
+export const tables = (data) => {
+    return request({
+        url: '/tables',
         method: 'get',
         data
     })
 }
+

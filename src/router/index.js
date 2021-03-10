@@ -4,61 +4,76 @@ import store from './../store'
 
 Vue.use(VueRouter)
 
-const routes = [
-  {
-    path:'/login',
-    component: () => import('@/views/login')
+const routes = [{
+    path: '/login',
+    component: () => import('@/views/login'),
+    hidden: true
   },
   {
-    path:'/',
+    path: '/',
     component: () => import('@/layout'),
-    meta:{
-      requireAuth:true
-    }
+    meta: {
+      requireAuth: true
+    },
+    hidden: true
   },
   {
-    path:'/table',
-    component:() => import('@/layout'),
+    path: '/table',
+    component: () => import('@/layout'),
     redirect: '/table/index',
-    meta:{
-      requireAuth:true
+    meta: {
+      title: '表格',
+      icon: 'el-icon-watermelon',
+      requireAuth: true,
+      activeMenu: '/table/index'
     },
-    children:[
-      {
-        path:'index',
-        component: () => import('@/views/table/index.vue')
-      }
-    ]
+    children: [{
+      path: 'index',
+      component: () => import('@/views/table/index.vue')
+    }]
   },
   {
-    path:'/form',
-    component:() => import('@/layout'),
-    meta:{
-      requireAuth:true
+    path: '/form',
+    component: () => import('@/layout'),
+    meta: {
+      title: '表单',
+      icon: 'el-icon-cherry',
+      requireAuth: true,
+      activeMenu: '/form'
     },
-    children:[
-      {
-        path: 'default',
-        component: () => import('@/views/form/default.vue')
-      }, {
-        path: 'step',
-        component: () => import('@/views/form/step.vue')
+    showChildren: true,
+    children: [{
+      path: 'default',
+      component: () => import('@/views/form/default.vue'),
+      meta: {
+        title: '基础表单',
+        activeMenu: '/form/default',
+        roles: ['admin']
       }
-    ]
+    }, {
+      path: 'step',
+      component: () => import('@/views/form/step.vue'),
+      meta: {
+        title: '分步表单',
+        activeMenu: '/form/step',
+        roles: ['admin']
+      }
+    }]
   },
   {
-    path:'/card',
-    component:() => import('@/layout'),
+    path: '/card',
+    component: () => import('@/layout'),
     redirect: '/card/index',
-    meta:{
-      requireAuth:true
+    meta: {
+      title: '卡片',
+      icon: 'el-icon-apple',
+      requireAuth: true,
+      activeMenu: '/card/index'
     },
-    children:[
-      {
-        path:'index',
-        component: () => import('@/views/card/index.vue')
-      }
-    ]
+    children: [{
+      path: 'index',
+      component: () => import('@/views/card/index.vue')
+    }]
   }
 ]
 

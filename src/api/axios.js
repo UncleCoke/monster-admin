@@ -3,7 +3,7 @@ import store from "./../store";
 import {errorNotify} from '../utils/notify';
 import router from './../router';
 
-let baseURL = 'https://fxb2api.uelink.com.cn/teacherapi';
+let baseURL = '';
 const service = axios.create({
     baseURL: baseURL,
     timeout: 5000

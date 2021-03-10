@@ -32,11 +32,11 @@ export default {
   justify-content: flex-start;
 
   .logoImage {
-    width:40px;
-    height:40px;
+    width:48px;
+    height:48px;
     margin: 20px auto;
     .icon-error {
-      font-size: 50px;
+      font-size: 48px;
       color: #8a8a8a;
     }
   }

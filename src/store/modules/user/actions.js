@@ -8,5 +8,10 @@ export default {
         commit
     }, user) => {
         commit('setUser', user)
+    },
+    setRole: ({
+        commit
+    }, role) => {
+        commit('setRole', role)
     }
 }
