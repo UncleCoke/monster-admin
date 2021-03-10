@@ -1,4 +1,4 @@
-const Mock = require('mockjs')
+import Mock from 'mockjs'
 
 Mock.mock('/login', 'post', {
     code: 0,
@@ -15,7 +15,7 @@ Mock.mock('/login', 'post', {
 
 
 let data = Mock.mock({
-    "array|10": [{
+    "list|10": [{
         "name|+1": [
             "小明","小黄","小红","小绿","小蓝"
         ],
@@ -24,8 +24,8 @@ let data = Mock.mock({
         ]
     }]
 })
-Mock.mock('/tables', 'get', {
+Mock.mock('/tables', 'post', {
     code: 0,
     msg: '查询成功',
-
+    data
 })

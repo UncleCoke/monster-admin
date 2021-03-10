@@ -11,7 +11,7 @@ export const login = (data) => {
 export const tables = (data) => {
     return request({
         url: '/tables',
-        method: 'get',
+        method: 'post',
         data
     })
 }
