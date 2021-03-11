@@ -1,3 +1,10 @@
 @import '@/style/reset.scss';
 @import '@/style/element-variables.scss';
 @import '@/style/mixin.scss';
+
+.panel{
+    width:100%;
+    padding:30px;
+    background:#fff;
+    border-radius:4px;
+}

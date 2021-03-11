@@ -4,6 +4,16 @@ import store from './../store'
 
 Vue.use(VueRouter)
 
+/**
+ * hidden:是否显示在导航栏
+ * showChildren:是否在导航栏显示子路由，默认没有该属性（false）
+ * meta：{
+ *  title：导航栏的路由标签
+ *  icon： 导航栏的路由图标
+ *  activeMenu: 导航栏高亮时的响应路径（index）
+ *  roles：权限数组，默认没有该属性（适配所有权限）
+ * }
+ */
 const routes = [{
     path: '/login',
     component: () => import('@/views/login'),
@@ -30,49 +40,6 @@ const routes = [{
     children: [{
       path: 'index',
       component: () => import('@/views/table/index.vue')
-    }]
-  },
-  {
-    path: '/form',
-    component: () => import('@/layout'),
-    meta: {
-      title: '表单',
-      icon: 'el-icon-cherry',
-      requireAuth: true,
-      activeMenu: '/form'
-    },
-    showChildren: true,
-    children: [{
-      path: 'default',
-      component: () => import('@/views/form/default.vue'),
-      meta: {
-        title: '基础表单',
-        activeMenu: '/form/default',
-        roles: ['admin']
-      }
-    }, {
-      path: 'step',
-      component: () => import('@/views/form/step.vue'),
-      meta: {
-        title: '分步表单',
-        activeMenu: '/form/step',
-        roles: ['admin']
-      }
-    }]
-  },
-  {
-    path: '/card',
-    component: () => import('@/layout'),
-    redirect: '/card/index',
-    meta: {
-      title: '卡片',
-      icon: 'el-icon-apple',
-      requireAuth: true,
-      activeMenu: '/card/index'
-    },
-    children: [{
-      path: 'index',
-      component: () => import('@/views/card/index.vue')
     }]
   }
 ]

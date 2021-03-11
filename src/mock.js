@@ -1,4 +1,4 @@
-import Mock from 'mockjs'
+import Mock, { Random } from 'mockjs'
 
 Mock.mock('/login', 'post', {
     code: 0,
@@ -13,19 +13,14 @@ Mock.mock('/login', 'post', {
     },
 })
 
-
-let data = Mock.mock({
-    "list|10": [{
-        "name|+1": [
-            "小明","小黄","小红","小绿","小蓝"
-        ],
-        "age|+1":[
-            5,6,7,8,9
-        ]
-    }]
-})
+Random.cname();
+Random.email();
 Mock.mock('/tables', 'post', {
     code: 0,
     msg: '查询成功',
-    data
+    "list|10":[{
+        "name":"@cname",
+        "age|20-30":30,
+        "email":"@email"
+    }]
 })
